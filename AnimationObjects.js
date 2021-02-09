@@ -91,3 +91,57 @@ class Segment {
     var newSegment = new Segment();
   }
 }
+
+
+
+//-----------------------Arrows---------------------------//
+
+class UpwardsArrow {
+  constructor(pointX, pointY) {
+    this.tipX = pointX;                //Varies with arrow animation
+    this.tipY = pointY;
+    this.pointingAtX = pointX;          //Constant
+    this.pointingAtY = pointY;
+  }
+
+  show() {
+    stroke(255, 0, 0);
+    fill(255, 0, 0);
+    triangle(this.tipX, this.tipY, this.tipX - 15, this.tipY + 20, this.tipX + 15, this.tipY + 20);
+    rect(this.tipX - 10, this.tipY + 20, 20, 50);
+  }
+
+  bob() {
+    this.tipY = (this.pointingAtY + 15) + 15 * sin(millis()/200);
+  }
+}
+
+
+
+class DownwardsArrow {
+  constructor(pointX, pointY) {
+    this.tipX = pointX;                //Varies with arrow animation
+    this.tipY = pointY;
+    this.pointingAtX = pointX;          //Constant
+    this.pointingAtY = pointY;
+  }
+
+  setPosition(x, y){
+    this.tipX = x;
+    this.tipY = y;
+    this.pointingAtX = x;
+    this.pointingAtY = y;
+    
+    
+  }
+  show() {
+    stroke(255, 0, 0);
+    fill(255, 0, 0);
+    triangle(this.tipX, this.tipY, this.tipX - 15, this.tipY - 20, this.tipX + 15, this.tipY - 20);
+    rect(this.tipX - 10, this.tipY - 70, 20, 50);
+  }
+
+  bob() {
+    this.tipY = (this.pointingAtY - 15) + 15 * sin(millis()/200);
+  }
+}
