@@ -39,7 +39,7 @@ let slopeSlider = new NumberSlider(0, 0, 1);
 
 var levelIndex = 0;
 var toSetupLevel = true;
-var levelList = [0.2, 0.3, 0.4, 0.5, 1, 2, 3, 4, 5];
+var levelList = [1, 2, 3, 4, 0.2, 0.3, 0.4, 0.5];
 var level = levelList[0];
 
 var levelCompleted = false;
@@ -1434,7 +1434,9 @@ function draw() {
         text("Click Anywhere to Continue", 250, 460);
         if (clicked) {
           if (levelCompleted) {
-            nextMode();
+            print(level);
+            nextLevel();
+            print(level);
           } else {
             nextProblem();
           }
