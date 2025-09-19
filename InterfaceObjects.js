@@ -348,6 +348,7 @@ class NumberSlider {      //09/2/21 THIS CLASS IS IN DIRE NEED OF REFACTORING. M
     this.fullSize = [40, 70];
     this.upPressed = false;
     this.downPressed = false;
+    this.numWidth = 0
     
     this.minValue = 0;
     this.maxValue = 100;
@@ -370,7 +371,8 @@ class NumberSlider {      //09/2/21 THIS CLASS IS IN DIRE NEED OF REFACTORING. M
     //Main number
     textSize(this.textSize);
     //text(this.sliderValue, this.position[0] - 7, this.position[1] + 7);  
-    text(this.sliderValue, this.position[0], this.position[1]);  
+    text(this.sliderValue, this.position[0], this.position[1]);
+    this.numWidth = textWidth(this.sliderValue)  
 
 
     //Top Arrow

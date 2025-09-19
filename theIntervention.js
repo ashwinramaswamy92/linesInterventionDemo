@@ -1,4 +1,4 @@
-var debug = true;
+var debug = false;
 
 var clicked = false;
 var cyclesSinceClick = 0;
@@ -159,7 +159,12 @@ function draw() {
       stroke(0);
       fill(0);
       textSize(30);
-      text("Plot the point (", 80, 50);
+      let promptX = 80
+      let promptY = 50
+      let promptText = "Plot the point ("
+      let promptTextWidth = textWidth(promptText)
+      text(promptText, promptX, promptY);
+      
 
 
       //stroke(255, 162, 0);
@@ -169,23 +174,28 @@ function draw() {
       fill(229, 122, 0);
 
       textSize(30);
-      text(correctAnswer[0], 275, 50);
+      let caX = correctAnswer[0]
+      let caY = correctAnswer[1]
+      caXWidth = textWidth(caX)
+      text(caX, promptX + promptTextWidth, promptY);
 
       stroke(0);
       fill(0);
       textSize(30);
-      text(", ", 310, 50);
+      let cWidth = textWidth(", ")
+      text(", ", promptX + promptTextWidth + caXWidth, 50);
 
       stroke(0);
       fill(0, 0, 255);
       textSize(30);
-      text(correctAnswer[1], 330, 50);
+      caYWidth = textWidth(caY)
+      text(caY, promptX + promptTextWidth + caXWidth + cWidth, 50);
 
 
       textSize(30);
       stroke(0);
       fill(0);
-      text(")", 365, 50);
+      text(")", promptX + promptTextWidth + caXWidth + cWidth + caYWidth, 50);
 
 
       if (clicked) {
@@ -1050,7 +1060,8 @@ function draw() {
 
 
       if (clicked) {
-        if (dist(currentX, currentY, correctAnswer[0], correctAnswer[1]) < 1) {
+        let clickAccuracyThresholdAxes = 0.5 //Accuracy threshold in axes units
+        if (dist(currentX, currentY, correctAnswer[0], correctAnswer[1]) < clickAccuracyThresholdAxes) {
 
           //END DATA RECORDING, AND WRITE IT TO DATABASE HERE..
           correctPoints[correctPoints.length] = [correctAnswer[0], correctAnswer[1]];
@@ -1166,9 +1177,13 @@ function draw() {
       fill(0);
       textSize(20);
       text("Every Line Has a Slope!", 20, 50);
+      let equationPositionX = 270
+      let equationPositionY = 440
 
-      text("y = ", 270, 440);
-      slopeSlider.setPosition(300, 440);
+      text("y = ", equationPositionX, equationPositionY);
+      let yEqualsWidth = textWidth("y = ")
+
+      slopeSlider.setPosition(equationPositionX + yEqualsWidth, equationPositionY);
       slopeSlider.show();
       slopeSlider.update();
 
@@ -1176,14 +1191,14 @@ function draw() {
       stroke(0);
       fill(0);
       textSize(20);
-      text("x", 320, 440);
+      text("x", equationPositionX + yEqualsWidth + slopeSlider.numWidth, equationPositionY);
 
       strokeWeight(1);
       line1.show(0, 10);
       line1.setSlope(slopeSlider.sliderValue);
 
 
-      downArrow.setPosition(300, 410);
+      downArrow.setPosition(slopeSlider.position[0] + slopeSlider.numWidth/2, 410);
 
       downArrow.bob();
       downArrow.show();
