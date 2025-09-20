@@ -21,7 +21,7 @@ class Segment {
   }
 
   show() {
-    strokeWeight(2);
+    strokeWeight(5);
     line(this.startX, this.startY, this.endX, this.endY, 150);
     //ellipse(this.midpointX, this.midpointY, 3, 3);
   }
