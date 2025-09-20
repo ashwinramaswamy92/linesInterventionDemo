@@ -377,6 +377,7 @@ function draw() {
             segment1.midpointX = axes.XAxesToPixels(correctAnswer[0] / 2);
             segment1.midpointY = axes.YAxesToPixels(0);
             segment1.len = axes.XAxesToPixels(correctAnswer[0]) - axes.XAxesToPixels(0);
+            if (correctAnswer[0] == 0) segment2.premoveOffset = 0  //Don't premove if it's a zero to avoid confusion
             segment1.initialize();
 
             segment2.midpointX = segment1.midpointX;
@@ -519,6 +520,7 @@ function draw() {
             segment2.midpointX = segment1.midpointX;
             segment2.midpointY = segment1.midpointY;
             segment2.len = segment1.len;
+            if (correctAnswer[0] == 0) segment2.premoveOffset = 0  //Don't premove if it's a zero to avoid confusion
             segment2.initialize();
 
 
@@ -526,12 +528,15 @@ function draw() {
             segment3.midpointX = segment1.midpointX;
             segment3.midpointY = segment1.midpointY;
             segment3.len = segment1.len;
+            if (correctAnswer[0] == 0) segment3.premoveOffset = 0  //Don't premove if it's a zero to avoid confusion
+
             segment3.initialize();
 
 
             segment4.midpointX = segment1.midpointX;
             segment4.midpointY = segment1.midpointY;
             segment4.len = segment1.len;
+            if (correctAnswer[0] == 0) segment4.premoveOffset = 0  //Don't premove if it's a zero to avoid confusion
             segment4.initialize();
 
 

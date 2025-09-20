@@ -39,8 +39,8 @@ function previewPoint(theAxes, guideLinesOn, gridOn, showCoords) {
   // DRAWING GUIDE LINES
   if (guideLinesOn) {
     //x-axis
-    stroke(229, 122, 0);
-    fill(229, 122, 0);
+    stroke(xColorArr[0], xColorArr[1], xColorArr[2]);
+    fill(xColorArr[0], xColorArr[1], xColorArr[2]);
     strokeWeight(1);
     line(xPixels, yPixels, axes.origin[0], yPixels);                    // guiding line along point
 
@@ -50,9 +50,8 @@ function previewPoint(theAxes, guideLinesOn, gridOn, showCoords) {
 
 
     //y-axis  
-    stroke(0, 0, 255);
-    fill(0, 0, 255);
-
+    stroke(yColorArr[0], yColorArr[1], yColorArr[2]);
+    fill(yColorArr[0], yColorArr[1], yColorArr[2]);
     strokeWeight(1);
     line(xPixels, yPixels, xPixels, axes.origin[1]);                    // guiding line along point
 

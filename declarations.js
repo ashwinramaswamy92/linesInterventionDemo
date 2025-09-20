@@ -18,6 +18,8 @@ let pointsPlotted = 0;
 
 var failPoint = new Point(900000, 9000000, axes);    //A garbage initial value
 
+let xColorArr = [229, 122, 0];
+let yColorArr = [0, 0, 255];
 
 //For level 9?
 var correctlyClickedX = [];
@@ -30,10 +32,10 @@ var repeatedPoint = false;
 var lastPointWrong = false;
 
 
-var segment1 = new Segment(0, 0, 0);
-var segment2 = new Segment(0, 0, 0);
-var segment3 = new Segment(0, 0, 0);
-var segment4 = new Segment(0, 0, 0);
+var segment1 = new Segment(0, 0, 0, xColorArr);
+var segment2 = new Segment(0, 0, 0, yColorArr);
+var segment3 = new Segment(0, 0, 0, yColorArr);
+var segment4 = new Segment(0, 0, 0, yColorArr);
 
 let s = new BinarySlider(510, 15, 100, 60);
 let h = new hotButton(510, 105, 100, 60);
